@@ -1,7 +1,7 @@
-- id: files_check
-  name: files_check
-  description: Check specific files
-  entry: hooks/files_check.sh
+- id: files_checks
+  name: Files checks
+  description: Run checks for specific files
+  entry: hooks/hook_files_checks.sh
   language: script
 
 # - id: terraform_validate
