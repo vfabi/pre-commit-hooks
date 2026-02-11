@@ -14,8 +14,11 @@ Hook for scanning the filesystem for security vulnerabilities using [Trivy](http
 
 ### trivy-config-docker
 
-Hook for scanning configuration files (IaC) for security issues and misconfigurations using [Trivy](https://github.com/aquasecurity/trivy). Runs via Docker.  
-Same as `trivy-fs-docker --scanners=misconfig`.
+Hook for scanning configuration files (IaC) for security issues and misconfigurations using [Trivy](https://github.com/aquasecurity/trivy). Same as `trivy-fs-docker --scanners=misconfig`. Runs via Docker.
+
+### python-bandit
+
+Hook for checking Python code using [Bandit](https://github.com/PyCQA/bandit). A widely-used, open-source SAST tool specifically designed for Python code. It scans for common security issues like hardcoded passwords, SQL injections, and the unsafe use of functions. Runs via Docker.
 
 ## Usage
 
@@ -28,7 +31,9 @@ repos:
   - repo: https://github.com/vfabi/pre-commit-hooks
     rev: <VERSION>  # Specify the version tag or commit hash
     hooks:
-      - id: configuration_files_templating
+      # Custom
+      - id: configuration-files-templating
+      # Security
       - id: trivy-fs-docker
         args:
           - --skip-dirs=tests/,.git/,.venv/,.mypy_cache/
@@ -46,5 +51,9 @@ repos:
           - --severity=HIGH,CRITICAL
           - --format=table
           - .  # last arg indicates the path/file to scan
+      # Python SAST
       - id: python-bandit
+        args:
+          - -r
+          - app # recursively scan the app directory
 ```
