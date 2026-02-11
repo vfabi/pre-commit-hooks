@@ -46,4 +46,5 @@ repos:
           - --severity=HIGH,CRITICAL
           - --format=table
           - .  # last arg indicates the path/file to scan
+      - id: python-bandit
 ```

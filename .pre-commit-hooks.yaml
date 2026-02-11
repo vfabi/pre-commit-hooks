@@ -25,8 +25,6 @@
 - id: python-bandit
   name: python-bandit
   description: 'Bandit is a tool for finding common security issues in Python code'
-  entry: bandit
-  language: python
-  language_version: python3
-  types: [python]
+  entry: ghcr.io/pycqa/bandit/bandit:latest
+  language: docker_image
   require_serial: true
