@@ -29,7 +29,7 @@ function files_templates_rollback {
 
 
 function file_variables_yaml {
-  # Encrypt 'variables.yaml' file, that contains sensetive template files variables.
+  # Encrypt 'variables.yaml' file, that contains sensitive template files variables.
 
   PWD="$(pwd)/configuration/tools"
   VARIABLES_FILE="configuration/tools/variables.yaml"

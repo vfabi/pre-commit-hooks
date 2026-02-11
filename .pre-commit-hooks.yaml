@@ -1,6 +1,20 @@
+# Custom
 - id: configuration_files_templating
   name: Configuration files templating
   description: Run configuration files templating
-  entry: hooks/hook_configuration_files_templating.sh
+  entry: hooks-impl/hook_configuration_files_templating.sh
   language: script
   require_serial: true
+
+# Security
+- id: trivy-fs-docker
+  name: trivy-fs-docker
+  entry: aquasec/trivy:0.68.2 fs --cache-dir /src/.pre-commit-trivy-cache --exit-code 1
+  language: docker_image
+  pass_filenames: false
+
+- id: trivy-config-docker
+  name: trivy-config-docker
+  entry: aquasec/trivy:0.68.2 config --cache-dir /src/.pre-commit-trivy-cache --exit-code 1
+  language: docker_image
+  pass_filenames: false
