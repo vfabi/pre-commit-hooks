@@ -1,22 +1,22 @@
 # Custom
-- id: configuration_files_templating
-  name: Configuration files templating
-  description: Run configuration files templating
-  entry: hooks-impl/hook_configuration_files_templating.sh
+- id: configuration-files-templating
+  name: configuration-files-templating
+  description: 'Run configuration files templating'
+  entry: hooks-impl/configuration_files_templating.sh
   language: script
   require_serial: true
 
 # Security
 - id: trivy-fs-docker
   name: trivy-fs-docker
-  description:  'Trivy security fs check'
+  description:  'Trivy security scanner fs check'
   entry: aquasec/trivy:0.69.1 fs --cache-dir /src/.pre-commit-trivy-cache --exit-code 1
   language: docker_image
   pass_filenames: false
 
 - id: trivy-config-docker
   name: trivy-config-docker
-  description: 'Trivy security configuration check'
+  description: 'Trivy security scanner configuration check'
   entry: aquasec/trivy:0.69.1 config --cache-dir /src/.pre-commit-trivy-cache --exit-code 1
   language: docker_image
   pass_filenames: false
@@ -24,7 +24,7 @@
 # Python SAST
 - id: python-bandit
   name: python-bandit
-  description: 'Bandit is a tool for finding common security issues in Python code'
+  description: 'Bandit is a SAST tool for finding common security issues in Python code'
   entry: ghcr.io/pycqa/bandit/bandit:latest
   language: docker_image
   require_serial: true
