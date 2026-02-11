@@ -9,6 +9,7 @@
 ### Fixed
 
 - python-bandit hook
+- configuration-files-templating hook
 
 ## [1.2.1] - 2026-02-12
 
