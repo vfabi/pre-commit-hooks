@@ -1,3 +1,15 @@
+## [1.2.1] - 2026-02-12
+
+### Added
+
+### Changed
+
+- README.md
+
+### Fixed
+
+- python-bandit hook
+
 ## [1.2.0] - 2026-02-11
 
 ### Added
