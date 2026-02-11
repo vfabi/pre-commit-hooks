@@ -14,7 +14,8 @@ Hook for scanning the filesystem for security vulnerabilities using [Trivy](http
 
 ### trivy-config-docker
 
-Hook for scanning configuration files (IaC) for security issues and misconfigurations using [Trivy](https://github.com/aquasecurity/trivy). Runs via Docker.
+Hook for scanning configuration files (IaC) for security issues and misconfigurations using [Trivy](https://github.com/aquasecurity/trivy). Runs via Docker.  
+Same as `trivy-fs-docker --scanners=misconfig`.
 
 ## Usage
 
@@ -30,18 +31,18 @@ repos:
       - id: configuration_files_templating
       - id: trivy-fs-docker
         args:
-          - --skip-dirs=/tests
-          - --skip-dirs=/tmp
+          - --skip-dirs=tests/,.git/,.venv/,.mypy_cache/
           - --scanners=vuln,secret,misconfig
           - --severity=HIGH,CRITICAL
+          - --helm-kube-version=1.26.0
           - --ignore-unfixed
           - --format=table
           # - --exit-code=0
           - .  # last arg indicates the path/file to scan
       - id: trivy-config-docker
         args:
-          - --skip-dirs=/tests
-          - --skip-dirs=/tmp
+          - --skip-dirs=tests/
+          - --skip-dirs=tmp/
           - --severity=HIGH,CRITICAL
           - --format=table
           - .  # last arg indicates the path/file to scan

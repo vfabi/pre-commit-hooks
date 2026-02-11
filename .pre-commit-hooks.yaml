@@ -9,12 +9,12 @@
 # Security
 - id: trivy-fs-docker
   name: trivy-fs-docker
-  entry: aquasec/trivy:0.68.2 fs --cache-dir /src/.pre-commit-trivy-cache --exit-code 1
+  entry: aquasec/trivy:0.69.1 fs --cache-dir /src/.pre-commit-trivy-cache --exit-code 1
   language: docker_image
   pass_filenames: false
 
 - id: trivy-config-docker
   name: trivy-config-docker
-  entry: aquasec/trivy:0.68.2 config --cache-dir /src/.pre-commit-trivy-cache --exit-code 1
+  entry: aquasec/trivy:0.69.1 config --cache-dir /src/.pre-commit-trivy-cache --exit-code 1
   language: docker_image
   pass_filenames: false
