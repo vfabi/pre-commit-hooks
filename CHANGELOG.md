@@ -1,3 +1,13 @@
+## [1.2.3] - 2026-09-17
+
+### Added
+
+### Changed
+
+- Update Trivy version to 0.74.0
+
+### Fixed
+
 ## [1.2.2] - 2026-02-12
 
 ### Added
