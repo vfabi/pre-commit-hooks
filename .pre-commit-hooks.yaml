@@ -10,14 +10,14 @@
 - id: trivy-fs-docker
   name: trivy-fs-docker
   description:  'Trivy security scanner fs check'
-  entry: aquasec/trivy:0.69.1 fs --cache-dir /src/.pre-commit-trivy-cache --exit-code 1
+  entry: aquasec/trivy:0.74.0 fs --cache-dir /src/.pre-commit-trivy-cache --exit-code 1
   language: docker_image
   pass_filenames: false
 
 - id: trivy-config-docker
   name: trivy-config-docker
   description: 'Trivy security scanner configuration check'
-  entry: aquasec/trivy:0.69.1 config --cache-dir /src/.pre-commit-trivy-cache --exit-code 1
+  entry: aquasec/trivy:0.74.0 config --cache-dir /src/.pre-commit-trivy-cache --exit-code 1
   language: docker_image
   pass_filenames: false
 
